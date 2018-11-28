@@ -18,4 +18,8 @@ Steps to reproduce the behavior:
 A clear and concise description of what you expected to happen.
 
 ### [FURTHER INFORMATION]
-Any and all information that might be suspected to have relation to the bug.
+Any and all information that might be suspected to have relation to the bug. For example:
+    Browser
+    System Information
+    XAMPP Setup
+    etc.
