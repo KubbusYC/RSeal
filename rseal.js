@@ -13,6 +13,7 @@ function gameObject()
     this.posX;
     this.height;
     this.width;
+    this.tag = "default";
 
     //sets up a newly created function with values and sprite
     this.init = function(id, src, posY, posX, height, width)
@@ -64,12 +65,11 @@ function gameObject()
     this.update = function()
     {
       var gob = document.getElementById(this.id);
-      gob.src = src;
-      gob.style.left = posX + "px";
-      gob.style.top = (parseInt(document.getElementById("screen").style.height.replace("px",""))-posY)+"px";
-      gob.style.height = height +"px";
-      gob.style.width = width + "px";
+      gob.src = this.src;
+      gob.style.left = this.posX + "px";
+      gob.style.top = (parseInt(document.getElementById("screen").style.height.replace("px",""))-this.posY)+"px";
+      gob.style.height = this.height +"px";
+      gob.style.width = this.width + "px";
     }
-
 
 }

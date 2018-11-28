@@ -1,16 +1,22 @@
 function Game()
 {
 
-
+  this.nextID = 0;
+  this.exclusiveID = function()
+  {
+    this.nextID++;
+    return this.nextID + "";
+  }
   this.start = function()
   {
-    game.settings = new RSealSetting();
-    game.player = new gameObject();
+    this.settings = new RSealSetting();
+    this.player = new gameObject();
     game.player.init(
       "player",
       "https://proxy.duckduckgo.com/iur/?f=1&image_host=http%3A%2F%2Fwww.factzoo.com%2Fsites%2Fall%2Fimg%2Fmammals%2Fseals%2Fribbon-seal-close.jpg&u=https://www.factzoo.com/sites/all/img/mammals/seals/ribbon-seal-close.jpg",
       100, 100,
       100, 100);
+      game.player.tag = "player";
   }
 
 
@@ -29,11 +35,20 @@ function Game()
         }
         if (code === 37)
         {
-          game.player.move(0,-5);
+          var lel = "lel";
+          game.killObject(lel);
+          console.log(game);
+
         }
         if (code === 39)
         {
-          game.player.move(0,5);
+          var i = game.exclusiveID();
+          game["lel"] = new gameObject();
+           game["lel"].init(
+            "lel",
+            "https://proxy.duckduckgo.com/iur/?f=1&image_host=http%3A%2F%2Fwww.factzoo.com%2Fsites%2Fall%2Fimg%2Fmammals%2Fseals%2Fribbon-seal-close.jpg&u=https://www.factzoo.com/sites/all/img/mammals/seals/ribbon-seal-close.jpg",
+            400, 400,
+            100, 100);
         }
       }
       window.onkeyup = function (event)
@@ -43,5 +58,12 @@ function Game()
         {
         }
       }
+  }
+
+  this.killObject = function(name)
+  {
+    console.log(name)
+    delete(game[name]);
+    document.getElementById("screen").removeChild(document.getElementById(game[name].id));
   }
 }
