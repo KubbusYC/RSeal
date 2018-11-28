@@ -4,9 +4,9 @@ function Game()
 
   this.start = function()
   {
-    this.settings = new RSealSetting();
-    this.player = new gameObject();
-    this.player.new(
+    game.settings = new RSealSetting();
+    game.player = new gameObject();
+    game.player.init(
       "player",
       "https://proxy.duckduckgo.com/iur/?f=1&image_host=http%3A%2F%2Fwww.factzoo.com%2Fsites%2Fall%2Fimg%2Fmammals%2Fseals%2Fribbon-seal-close.jpg&u=https://www.factzoo.com/sites/all/img/mammals/seals/ribbon-seal-close.jpg",
       100, 100,
