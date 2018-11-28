@@ -72,4 +72,18 @@ function gameObject()
       gob.style.width = this.width + "px";
     }
 
+    //Deletion of gameObjects
+    this.kill = function(name)
+    {
+      document.getElementById("screen").removeChild(document.getElementById(game[name].id));
+      for (var k in game)
+      {
+        if(~k.indexOf(name)) // If the current key contains the string we're looking for
+        {
+          delete game[k];
+        }
+      }
+      console.log(game);
+    }
+
 }

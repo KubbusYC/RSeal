@@ -36,8 +36,7 @@ function Game()
         if (code === 37)
         {
           var lel = "lel";
-          game.killObject(lel);
-          console.log(game);
+          game.player.kill("lel");
 
         }
         if (code === 39)
@@ -60,10 +59,11 @@ function Game()
       }
   }
 
-  this.killObject = function(name)
-  {
-    console.log(name)
-    delete(game[name]);
-    document.getElementById("screen").removeChild(document.getElementById(game[name].id));
-  }
+// this.killObject = function(name)
+// {
+//   delete game.getElementsByName("lel");
+//   console.log(name)
+//   delete(game[name]);
+//   document.getElementById("screen").removeChild(document.getElementById(game[name].id));
+// }
 }
