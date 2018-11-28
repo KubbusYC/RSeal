@@ -1,6 +1,12 @@
-// GameObjects
+//Game settings
+function RSealSetting()
+{
+  this.fps = 30;
+}
+//GameObjects
 //Constructor for the gameObject
-function gameObject() {
+function gameObject()
+{
     this.id;
     this.src;
     this.posY;
@@ -19,7 +25,7 @@ function gameObject() {
       this.height = height;
       this.width = width;
       //set up sprite
-      var gob = document.createElement("gob");
+      var gob = document.createElement("img");
       gob.src = src;
       gob.alt = "LOADING";
       gob.id = id;
@@ -29,7 +35,7 @@ function gameObject() {
       gob.style.height = height +"px";
       gob.style.width = width + "px";
       //display sprite
-      document.getElementById("screen").appendChild(img);
+      document.getElementById("screen").appendChild(gob);
     }
 
     //moves a game object by dY and dX
