@@ -1,16 +1,12 @@
 function Game()
 {
 
-  this.nextID = 0;
-  this.exclusiveID = function()
-  {
-    this.nextID++;
-    return this.nextID + "";
-  }
+
   this.start = function()
   {
-    this.settings = new RSealSetting();
+    this.settings = new RsSetting();
     this.player = new gameObject();
+    this.toolKit = new RsUtilities();
     game.player.init(
       "player",
       "https://proxy.duckduckgo.com/iur/?f=1&image_host=http%3A%2F%2Fwww.factzoo.com%2Fsites%2Fall%2Fimg%2Fmammals%2Fseals%2Fribbon-seal-close.jpg&u=https://www.factzoo.com/sites/all/img/mammals/seals/ribbon-seal-close.jpg",
@@ -31,7 +27,7 @@ function Game()
         }
         if (code === 40)
         {
-          game.player.move(-5,0);
+
         }
         if (code === 37)
         {
@@ -41,7 +37,7 @@ function Game()
         }
         if (code === 39)
         {
-          var i = game.exclusiveID();
+          var i = game.toolKit.exclusiveID();
           game["lel"] = new gameObject();
            game["lel"].init(
             "lel",

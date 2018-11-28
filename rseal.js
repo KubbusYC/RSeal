@@ -1,5 +1,5 @@
 //Game settings
-function RSealSetting()
+function RsSetting()
 {
   this.fps = 30;
 }
@@ -32,7 +32,7 @@ function gameObject()
       gob.id = id;
       gob.style.position = "absolute";
       gob.style.left = posX + "px";
-      gob.style.top = (parseInt(document.getElementById("screen").style.height.replace("px",""))-posY)+"px";
+      gob.style.top = game.toolKit.y(this.posY);
       gob.style.height = height +"px";
       gob.style.width = width + "px";
       //display sprite
@@ -48,7 +48,7 @@ function gameObject()
       //update sprite
       var gob = document.getElementById(this.id);
       gob.style.left = this.posX + "px";
-      gob.style.top = (parseInt(document.getElementById("screen").style.height.replace("px",""))-this.posY)+"px";
+      gob.style.top = game.toolKit.y(this.posY);
     }
 
     //set a gameObject to new properties
@@ -58,7 +58,7 @@ function gameObject()
         this.posX = posX
         gob.style.left = this.posX + "px";
         this.posY = posY;
-        gob.style.top = (parseInt(document.getElementById("screen").style.height.replace("px",""))-this.posY)+"px";
+        gob.style.top = game.toolKit.y(this.posY);
     }
 
     //Update any changes in the gameObject to the on screen sprite
@@ -67,7 +67,7 @@ function gameObject()
       var gob = document.getElementById(this.id);
       gob.src = this.src;
       gob.style.left = this.posX + "px";
-      gob.style.top = (parseInt(document.getElementById("screen").style.height.replace("px",""))-this.posY)+"px";
+      gob.style.top = game.toolKit.y(this.posY);
       gob.style.height = this.height +"px";
       gob.style.width = this.width + "px";
     }
@@ -86,4 +86,24 @@ function gameObject()
       console.log(game);
     }
 
+}
+
+//Various utilities
+function RsUtilities()
+{
+  this.nextID = 0;
+  this.exclusiveID = function()
+  {
+    this.nextID++;
+    return this.nextID + "";
+  }
+
+  this.px = function(value)
+  {
+    return parseInt(value.replace("px",""))
+  }
+  this.y = function(posY)
+  {
+    return (parseInt(document.getElementById("screen").style.height.replace("px",""))-posY)+"px"
+  }
 }
