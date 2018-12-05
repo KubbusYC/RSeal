@@ -27,7 +27,7 @@ function Game()
         }
         if (code === 40)
         {
-
+          console.log(game.toolKit.getById("player"));
         }
         if (code === 37)
         {

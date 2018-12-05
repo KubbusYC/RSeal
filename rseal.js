@@ -88,6 +88,16 @@ function gameObject()
 
 }
 
+//Coliders
+function Collider(top, bottom, left, right, plane)
+{
+  this.top = top;
+  this.bottom = bottom;
+  this.left = left;
+  this.right = right;
+  this.plane = plane;
+}
+
 //Various utilities
 function RsUtilities()
 {
@@ -105,5 +115,18 @@ function RsUtilities()
   this.y = function(posY)
   {
     return (parseInt(document.getElementById("screen").style.height.replace("px",""))-posY)+"px"
+  }
+  this.getById = function(id)
+  {
+    for (var property in game) {
+      if (game.hasOwnProperty(property)) {
+        if (game[property].hasOwnProperty("id"))
+        {
+          if (game[property].id == id)
+          {
+            return game[property];        }
+        }
+      }
+    }
   }
 }
